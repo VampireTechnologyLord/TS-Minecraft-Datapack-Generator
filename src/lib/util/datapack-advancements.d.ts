@@ -1,9 +1,15 @@
 import {
     MCAmount,
+    MCDamage,
+    MCDistance,
     MCEntity,
     MCID,
     MCItem,
+    MCLocation,
+    MCSlot,
+    MCState,
     _MCDimension,
+    _MCEffect,
 } from './datapack-main';
 
 export type MCAdvancementType = 'task' | 'challenge' | 'goal';
@@ -116,6 +122,189 @@ interface __MCAdvancementCriteria_ConstructBeacon {
 }
 
 interface __MCAdvancementCriteria_ConsumeItem {
-    item: MCItem;
+    item?: MCItem;
+}
+
+interface __MCAdvancementCriteria_CuredZombieVillager {
+    cured_villager?: MCEntity;
+    zombie_villager?: MCEntity;
+}
+
+interface __MCAdvancementCriteria_EffectsChanged {
+    effects?: _MCEffect[];
+}
+
+interface __MCAdvancementCriteria_EnchantedItem {
+    item?: MCItem;
+    levels?: MCAmount;
+}
+
+interface __MCAdvancementCriteria_EnterBlock {
+    block?: MCID;
+    state?: MCState[];
+}
+
+interface __MCAdvancementCriteria_EntityHurtPlayer {
+    damage?: MCDamage;
+}
+
+interface __MCAdvancementCriteria_EntityKilledPlayer {
+    entity?: MCEntity;
+    killing_blow?: MCDamage;
+}
+
+interface __MCAdvancementCriteria_FilledBucket {
+    bucket?: MCID;
+}
+
+interface __MCAdvancementCriteria_FishingRodHooked {
+    entity?: MCEntity;
+    item?: MCItem;
+    rod?: MCItem;
+}
+
+interface __MCAdvancementCriteria_HeroOfTheVillage {
+    location?: MCLocation;
+}
+
+interface __MCAdvancementCriteria_Impossible {}
+
+interface __MCAdvancementCriteria_InventoryChanged {
+    items?: MCItem[];
+    slots?: MCSlot;
+}
+
+interface __MCAdvancementCriteria_ItemDurabilityChanged {
+    delta?: MCAmount;
+    durability?: MCAmount;
+    item?: MCItem;
+}
+
+interface __MCAdvancementCriteria_ItemUsedOnBlock {
+    item?: MCItem;
+    location?: MCLocation;
+}
+
+interface __MCAdvancementCriteria_KilledByCrossbow {
+    unique_entity_types?: MCAmount;
+    entities?: MCEntity[];
+}
+
+interface __MCAdvancementCriteria_Levitation {
+    distance?: MCDistance;
+    duration?: MCAmount;
+}
+
+interface __MCAdvancementCriteria_Location {
+    location?: MCLocation;
+}
+
+interface __MCAdvancementCriteria_NetherTravel {
+    distance?: MCDistance;
+}
+
+interface __MCAdvancementCriteria_PlacedBlock {
+    block?: MCID;
+    state?: MCState[];
+    item?: MCItem;
+    location?: MCLocation;
+}
+
+interface __MCAdvancementCriteria_PlayerGeneratesContainerLoot {
+    loot_table?: MCID;
+}
+
+interface __MCAdvancementCriteria_PlayerHurtEntity {
+    entity?: MCEntity;
+    damage?: MCDamage;
+}
+
+interface __MCAdvancementCriteria_PlayerInteractedWithEntity {
+    item?: MCItem;
+    entity?: MCEntity;
+}
+
+interface __MCAdvancementCriteria_PlayerKilledEntity {
+    entity?: MCEntity;
+    killing_blow?: MCDamage;
+}
+
+interface __MCAdvancementCriteria_RecipeUnlocked {
+    recipe?: MCID;
+}
+
+interface __MCAdvancementCriteria_SafelyHarvestHoney {
+    block?: 'minecraft:bee_nest' | 'minecraft:bee_hive';
+    tag?: string;
+    item?: MCItem;
+}
+
+interface __MCAdvancementCriteria_ShotCrossbow {
+    item?: MCItem;
+}
+
+interface __MCAdvancementCriteria_SleptInBed {
+    location?: MCLocation;
+}
+
+interface __MCAdvancementCriteria_SlideDownBlock {
+    block?: MCID;
+}
+
+interface __MCAdvancementCriteria_SummonedEntity {
+    entity?:
+        | 'minecraft:iron_golem'
+        | 'minecraft:snow_golem'
+        | 'minecraft:ender_dragon'
+        | 'minecraft:wither';
+}
+
+interface __MCAdvancementCriteria_TameAnimal {
+    animal?: MCEntity;
+}
+
+interface __MCAdvancementCriteria_TargetHit {
+    signal_strength?:
+        | 1
+        | 2
+        | 3
+        | 4
+        | 5
+        | 6
+        | 7
+        | 8
+        | 9
+        | 10
+        | 11
+        | 12
+        | 13
+        | 14
+        | 15;
+    projectile?: `${string}:${string}_arrow`;
+    shooter?: MCEntity;
+}
+
+interface __MCAdvancementCriteria_ThrownItemPickedUpByEntity {
+    entity?: MCEntity;
+    item?: MCItem;
+}
+
+interface __MCAdvancementCriteria_Tick {}
+
+interface __MCAdvancementCriteria_UsedEnderEye {
+    distance?: MCAmount;
+}
+
+interface __MCAdvancementCriteria_UsedTotem {
+    item?: MCItem;
+}
+
+interface __MCAdvancementCriteria_VillagerTrade {
+    item?: MCItem;
+    villager?: MCEntity;
+}
+
+interface __MCAdvancementCriteria_VoluntaryExile {
+    location?: MCLocation;
 }
 //#endregion MCAdvancementCriteria

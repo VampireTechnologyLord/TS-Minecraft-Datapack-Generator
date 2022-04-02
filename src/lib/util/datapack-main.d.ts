@@ -37,12 +37,27 @@ type _MCFluid = {
     tag?: string;
 };
 
-type _MCDistance = {
+export type MCState = { state_name: string; state_value: string };
+
+export type MCDistance = {
     absolute?: MCAmount;
     horizontal?: MCAmount;
     x_axis?: MCAmount;
     y_axis?: MCAmount;
     z_axis?: MCAmount;
+};
+
+type _MCDamageType = {
+    bypassesArmor?: boolean;
+    bypassesInvulnerability?: boolean;
+    bypassesMagic?: boolean;
+    isExplosion?: boolean;
+    isFire?: boolean;
+    isMagic?: boolean;
+    isProjectile?: boolean;
+    isLightning?: boolean;
+    directEntity?: MCEntity;
+    sourceEntity?: MCEntity;
 };
 
 type _MCEntityFlags = {
@@ -84,7 +99,7 @@ type _MCFeature =
     | 'minecraft:nether_fossil'
     | 'minecraft:bastion_remnant';
 
-type _MCLocation = {
+export type MCLocation = {
     biome?: MCID;
     block?: _MCBlock;
     fluid?: _MCFluid;
@@ -100,9 +115,9 @@ type _MCLocation = {
 export type MCEntity = {
     entity?: MCID;
     nbt?: string;
-    distance?: _MCDistance;
+    distance?: MCDistance;
     effects?: _MCEffect;
-    location?: _MCLocation;
+    location?: MCLocation;
     flags?: _MCEntityFlags;
     equipment?: _MCEquipment;
 };
@@ -172,3 +187,16 @@ export type MCStack =
     | 62
     | 63
     | 64;
+
+export type MCDamage = {
+    blocked?: boolean;
+    dealt?: MCAmount;
+    taken?: MCAmount;
+    type?: _MCDamageType;
+};
+
+export type MCSlot = {
+    empty?: MCAmount;
+    full?: MCAmount;
+    occupied?: MCAmount;
+};
