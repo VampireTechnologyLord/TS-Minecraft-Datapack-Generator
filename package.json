@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "nodemon": "^2.0.15",
     "tsc": "^2.0.4"
+  },
+  "scripts": {
+    "dev": "nodemon ./src/code.ts"
   }
 }

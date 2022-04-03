@@ -1,5 +1,5 @@
-import { MCAdvancementData } from '../util/datapack-advancements';
-import { MCAdvancementBuilder } from './datapack-advancements';
+import { MCAdvancementData } from '../util/dp_advancements_d';
+import { MCAdvancementBuilder } from './dp_advancements';
 
 function buildDatapack() {}
 
@@ -9,20 +9,21 @@ function buildDatapack() {}
  * @param datapack_id The id of the datapack.
  * @param datapack_description The description of the datapack.
  * @param datapack_data The data of the datapack.
- * @returns void
  */
 export function Datapack(
     datapack_name: string,
     datapack_id: string,
     datapack_description: string,
     datapack_data: (datapack: __MCDatapack) => void
-): void {
-    return void 0;
+): any {}
+
+export function tess(arg1: string): string {
+    return arg1;
 }
 
 /** Create new datapack. */
 export class __MCDatapack {
-    public static mc_advancements: MCAdvancementData[] = [];
+    public static mc_advancements: MCAdvancementData[];
     // noinspection JSUnusedLocalSymbols
     public constructor() {}
     /**
@@ -30,5 +31,9 @@ export class __MCDatapack {
      */
     public addAdvancement(): MCAdvancementBuilder {
         return new MCAdvancementBuilder();
+    }
+    public printAdvancements(): any {
+        console.log(__MCDatapack.mc_advancements);
+        return __MCDatapack.mc_advancements;
     }
 }

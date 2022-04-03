@@ -3,19 +3,23 @@ import {
     MCAdvancementCriteria,
     MCAdvancementType,
     _MCAdvancementCriteriaInterface,
-} from '../util/datapack-advancements';
-import { MCID } from '../util/datapack-main';
-import { __MCDatapack } from './datapack-main';
+} from '../util/dp_advancements_d';
+import { MCID } from '../util/dp_main_d';
+import { __MCDatapack } from './dp_main';
 
 export class MCAdvancementBuilder {
-    private advancement_id: string;
-    private advancement_name: string;
-    private advancement_description: string;
-    private advancement_icon: string;
-    private advancement_type: string;
+    private advancement_id: string = '';
+    private advancement_name: string = '';
+    private advancement_description: string = '';
+    private advancement_icon: string = '';
+    private advancement_type: string = '';
     private advancement_parent: string = '';
-    private advancement_settings: MCAdvancementSettings;
-    private advancement_isRoot: boolean;
+    private advancement_settings: MCAdvancementSettings = {
+        announceToChat: true,
+        showToast: true,
+        hidden: false,
+    };
+    private advancement_isRoot: boolean = false;
     private advancement_background: string = '';
     private advancement_criteria: MCAdvancementCriteria[] = [];
     // noinspection JSUnusedLocalSymbols
