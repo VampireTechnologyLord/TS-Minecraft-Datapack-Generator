@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "nodemon": "^2.0.15",
+    "nodemon": "^2.0.20",
     "tsc": "^2.0.4"
   },
   "scripts": {
